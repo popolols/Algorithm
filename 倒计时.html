@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="time">2023年还剩下83天17时32分40秒</div>
+  <script>
+    var timer = document.querySelector('.time')
+
+    function countDown() {
+      let time = +new Date('2023-01-01')
+      let nowTime = +new Date()
+      let timeDiff = time - nowTime
+      let second = Math.floor((timeDiff / 1000) % 60)
+      second < 10 ? second = '0' + second : second
+      let min = Math.floor((timeDiff / 1000 / 60) % 60)
+      min < 10 ? min = '0' + min : min
+      let hour = Math.floor((timeDiff / 1000 / 60 / 60) % 24)
+      hour < 10 ? hour = '0' + hour : hour
+      let day = Math.floor((timeDiff / 1000 / 60 / 60 / 24))
+      day < 10 ? hour = '0' + day : day
+      let str = `2023年还剩下${day}天${hour}时${min}分${second}秒`
+      timer.innerHTML = str
+      // console.log(str)
+
+    }
+
+    setInterval(countDown, 1000)
+  </script>
+</body>
+
+</html>
